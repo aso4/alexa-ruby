@@ -27,7 +27,7 @@ end
 post '/' do
   content_type :json
 
-  handler = CustomHandler.new(application_id: ENV['APPLICATION_ID'], logger: logger)
+  handler = CustomHandler.new(application_id: 'amzn1.ask.skill.55efad5c-72fc-45bc-aca5-9e713f352e81', logger: logger)
 
   begin
     hdrs = { 'Signature' => request.env['HTTP_SIGNATURE'], 'SignatureCertChainUrl' => request.env['HTTP_SIGNATURECERTCHAINURL'] }
