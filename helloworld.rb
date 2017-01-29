@@ -24,6 +24,10 @@ class CustomHandler < AlexaSkillsRuby::Handler
 
 end
 
+get '/' do
+  "Hello World!"
+end
+
 post '/' do
   content_type :json
 
