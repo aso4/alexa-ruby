@@ -49,7 +49,10 @@ post '/' do
   #request_json = JSON.parse(request.body.read.to_s)
   #halt 500 if request_json['session'].nil? || request_json['version'].nil? || request_json['request'].nil?
   #request.version = '1.0'
-  request = AlexaRubykit::Response.new(request_json['request'])
+  request.body.rewind
+  request_payload = JSON.parse request.body.read
+
+  request = AlexaRubykit::Response.new(request_payload)
 
 
   request.add_speech('Ruby is running. Ready')
