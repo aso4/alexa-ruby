@@ -1,3 +1,3 @@
 source 'http://rubygems.org'
 gem 'sinatra'
-gem 'alexa_skills_ruby'
+gem 'alexa_rubykit'
