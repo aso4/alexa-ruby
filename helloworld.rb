@@ -42,7 +42,7 @@ post '/' do
   #   403
   # end
 
-  request_json = JSON.parse(request.body.read_to_s)
+  request_json = JSON.parse(request.body.read.to_s)
   halt 500 if request_json['session'].nil? || request_json['version'].nil? || request_json['request'].nil?
 
   request = AlexaRubyKit::Request.new(request_json['request'])
