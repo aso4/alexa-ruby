@@ -46,13 +46,12 @@ post '/' do
   #   403
   # end
 
-  request_json = JSON.parse(request.body.read.to_s)
-  halt 500 if request_json['session'].nil? || request_json['version'].nil? || request_json['request'].nil?
+  #request_json = JSON.parse(request.body.read.to_s)
+  #halt 500 if request_json['session'].nil? || request_json['version'].nil? || request_json['request'].nil?
   #request.version = '1.0'
   request = AlexaRubykit::Response.new(request_json['request'])
 
-  request.add_session(request_json['session']['sessionId'])
-  request.shouldEndSession = true
+
   request.add_speech('Ruby is running. Ready')
   request.build_response
 
