@@ -33,12 +33,12 @@ post '/' do
 
   handler = CustomHandler.new(application_id: 'amzn1.ask.skill.55efad5c-72fc-45bc-aca5-9e713f352e81', logger: logger)
 
-  begin
-    hdrs = { 'Signature' => request.env['HTTP_SIGNATURE'], 'SignatureCertChainUrl' => request.env['HTTP_SIGNATURECERTCHAINURL'] }
-    handler.handle(request.body.read, hdrs)
-  rescue AlexaSkillsRuby::Error => e
-    logger.error e.to_s
-    403
-  end
+  # begin
+  #   hdrs = { 'Signature' => request.env['HTTP_SIGNATURE'], 'SignatureCertChainUrl' => request.env['HTTP_SIGNATURECERTCHAINURL'] }
+  #   handler.handle(request.body.read, hdrs)
+  # rescue AlexaSkillsRuby::Error => e
+  #   logger.error e.to_s
+  #   403
+  # end
 
 end
