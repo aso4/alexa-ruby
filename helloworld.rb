@@ -5,7 +5,6 @@
 
 
 require 'sinatra'
-require 'json'
 require 'alexa_rubykit'
 #
 # class CustomHandler < AlexaSkillsRuby::Handler
@@ -24,10 +23,6 @@ require 'alexa_rubykit'
 #   end
 #
 # end
-
-before do
-  content_type('application/json')
-end
 
 get '/' do
   "Hello World!"
@@ -49,12 +44,8 @@ post '/' do
   #request_json = JSON.parse(request.body.read.to_s)
   #halt 500 if request_json['session'].nil? || request_json['version'].nil? || request_json['request'].nil?
   #request.version = '1.0'
-  request.body.rewind
-  request_payload = JSON.parse request.body.read
 
-  request = AlexaRubykit::Response.new(request_payload)
-
-
+  request = AlexaRubykit::Response.new
   request.add_speech('Ruby is running. Ready')
   request.build_response
 
